@@ -11,7 +11,7 @@ const Blogs = () => {
     
       const response = await axios.delete(`http://localhost:4000/blog/${id}`);
       
-      
+      //
       setBlogs(blogs.filter((blog) => blog._id !== id));
 
       alert('Blog deleted successfully');

@@ -24,7 +24,7 @@ const Navigation = () => {
             </button>
           </div>
         </div>
-        <div className="flex-grow flex justify-center mt-8 bg-blue-500">
+        <div className="flex-grow flex justify-center mt-8 bg-blue-500 ">
         <div className="text-center text-white px-4">
           <h1 className="text-4xl md:text-6xl font-bold mb-4">
             Welcome to Gippy
