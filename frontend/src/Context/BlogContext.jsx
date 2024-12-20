@@ -4,9 +4,9 @@ export const BlogContext = createContext(null);
 
 export const BlogContextProvider = ({ children }) => {
   const [blogs, setBlogs] = useState([]);
-
+  
   useEffect(() => {
-    fetch(`${backend_url}/all-blogs`)
+    fetch(`${backend_url}/blogs`)
       .then((res) => res.json())
       .then((data) => setBlogs(data))
       .catch((err) => console.error("Error fetching blogs:", err));

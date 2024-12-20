@@ -14,6 +14,7 @@ const blogSchema = new Schema(
       type: String,
       required: true,
     },
+   
   },
   { timestamps: true }
 );

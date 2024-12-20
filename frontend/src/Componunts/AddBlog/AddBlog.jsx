@@ -8,7 +8,6 @@ const AddBlog = () => {
     author: '',
   });
 
-  // Function to handle input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
     setBlogdata({
@@ -20,9 +19,25 @@ const AddBlog = () => {
   // Function to handle form submission
   const handleOnClick = async (e) => {
     e.preventDefault(); // Prevent page reload
+    const token = localStorage.getItem('token'); // Retrieve token from localStorage
+
+    if (!token) {
+      alert('You must be logged in to add a blog!');
+      return;
+    }
+
     try {
-      // Post the data to the specified backend URL
-      const response = await axios.post('http://localhost:4000/createBlog', blogdata);
+      const response = await axios.post(
+        'http://localhost:4000/createBlog',
+        blogdata,
+        {
+          headers: {
+            'Authorization': `Bearer ${token}`, // Add 'Bearer' prefix
+          }
+          
+        }
+      );
+
       console.log('Blog added successfully:', response.data);
       alert('Blog added successfully!');
 
@@ -39,8 +54,8 @@ const AddBlog = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      {/* Form Container */}
+    <div className="flex align-middle justify-center min-h-screen bg-gray-100 pt-7">
+      {/* Form Container */} 
       <form className="w-full max-w-lg bg-white p-8 rounded-lg shadow-lg" onSubmit={handleOnClick}>
         {/* Title */}
         <div className="mb-4">
