@@ -12,7 +12,7 @@ app.use(express.json());
 
 
 const Mongo_url = process.env.MONGO_URI;
-
+const PORT = process.env.PORT;
 // Connect to MongoDB
 mongoose.connect(Mongo_url)
   .then(() => {
