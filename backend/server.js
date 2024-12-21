@@ -9,7 +9,7 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-const PORT = 4000;
+
 
 const Mongo_url = process.env.MONGO_URI;
 
